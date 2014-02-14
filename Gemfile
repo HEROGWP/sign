@@ -9,13 +9,11 @@ gem 'bootstrap-sass'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', group: [ :development, :test ]
 
-group :production do
-	# Use pg as the production database
-	gem 'pg'
+# Use pg as the production database
+gem 'pg', group: :production
 
-	# Allows Heroku to serve static assets
-	gem 'rails_12factor'
-end
+# Allows Heroku to serve static assets
+gem 'rails_12factor', group: :production
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -54,3 +52,4 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+gem 'rake'
