@@ -2,20 +2,7 @@
 
 <div class="row">
   <%= form_for(@user) do |f| %>
-      <% if @user.errors.any? %>
-      	<div id="error_explanation">
-	  <div class="alert alert-error">
-	  	There are <%= pluralize @user.errors.count, "error" %>
-	  </div>
-	</div>
-	
-	<ul>
-	  <%= @user.errors.full_messages.each do |msg| %>
-	  	<li><%= msg %></li>
-	  <% end %>
-	</ul>
-        
-      <% end %>
+      <%= render "shared/form_errors", record: @user%>
 
       <div class="field">
         <%= f.label :name %><br>
@@ -42,4 +29,4 @@
       </div>
   <% end %>
 </div>
-<%= link_to 'Back', users_path %>
+
