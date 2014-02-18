@@ -13,7 +13,7 @@ class PostsController < ApplicationController
   	@post = current_user.posts.build(create_params)
   	if @post.save
   		flash[:success] = "Posted successfully"
-  		redirect_to post_path
+  		redirect_to posts_path
   	else
   		render "new"
   	end
@@ -27,7 +27,7 @@ class PostsController < ApplicationController
 	else
 	  	flash[:error] = "Cannot delete post"
 	end
-  	redirect_to post_path
+  	redirect_to posts_path
   end
 
   private
