@@ -1,7 +1,7 @@
 module SessionsHelper
   def authenticate_user
     unless signed_in?
-      flash[:notice] = "Please sign-in to continue"
+      flash[:notice] = "請先登入"
       redirect_to new_sessions_path
     end
   end  

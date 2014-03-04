@@ -1,12 +1,12 @@
-<h1>Sign-In</h1>
+<h1>登入</h1>
 <%= form_for :session, url: sessions_path do |f| %>
     <%= f.label :email %><br>
     <%= f.text_field :email %><br>
 
-    <%= f.label :password %><br>
+    <%= f.label "密碼" %><br>
     <%= f.password_field :password %><br>
 
     <div class="actions">
-       <%= f.submit "Sign-in" %>
+       <%= f.submit "登入" %>
     </div>
 <% end %>

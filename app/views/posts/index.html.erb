@@ -6,13 +6,13 @@
     <section>
       <%= form_for @post do |f| %>
 	      <%= render "shared/form_errors", record: @post %>
-        <%= f.text_area :content, placeholder: "Write a new post" %><br />
-        <%= f.submit "Post", class: "btn btn-primary" %>
+        <%= f.text_area :content, placeholder: "在想些什麼？" %><br />
+        <%= f.submit "留言", class: "btn btn-primary" %>
       <% end %>
     </section>
   </aside>
   <div class="span8">
-    <h1>Posts</h1>
+    <h1>貼文</h1>
     <ul class="posts">
       <%= render partial: "shared/post", collection: @posts %>
     </ul>

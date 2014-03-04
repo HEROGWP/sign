@@ -3,5 +3,5 @@
   <%= link_to post.user.name, post.user, class: "user" %>
   <%= content_tag :span, post.content, class: "content" %>
   <%= content_tag :span, "Posted #{time_ago_in_words(post.created_at)} ago", class: "timestamp" %>
-	<%= link_to "delete", post, class: "delete", method: :delete, confirm: "Are you sure?" if current_user?(post.user) %>          
+	<%= link_to "刪除", post, class: "delete", method: :delete, confirm: "你確定嗎？" if current_user?(post.user) %>          
 </li>

@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   def create
   	@post = current_user.posts.build(create_params)
   	if @post.save
-  		flash[:success] = "Posted successfully"
+  		flash[:success] = "貼文成功"
   		redirect_to posts_path
   	else
   		render "new"
@@ -23,9 +23,9 @@ class PostsController < ApplicationController
   	@post = Post.find(params[:id])
   	if current_user?(@post.user)
 		@post.destroy
-	  	flash[:success] = "Post deleted"
+	  	flash[:success] = "貼文刪除"
 	else
-	  	flash[:error] = "Cannot delete post"
+	  	flash[:error] = "不能刪除貼文"
 	end
   	redirect_to posts_path
   end

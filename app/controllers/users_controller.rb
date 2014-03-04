@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user,  only: [:index, :show, :edit, :update, :destroy]
-  before_action :set_user, only:[:show, :edit, :update, :destroy, :follow, :unfollow]
+  before_action :authenticate_user,  except: [:new, :create]
+  before_action :set_user, only:[:show, :edit, :update, :destroy, :follow, :unfollow, :followers]
   # GET /users
   # GET /users.json
   def index
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     
       if @user.save
         sign_in @user
-	flash[:success] = "Welcome, #{@user.name}!"
+	flash[:success] = "歡迎, #{@user.name}!"
         redirect_to @user
         
         
@@ -46,7 +46,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user, notice: '成功修改資料' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -67,7 +67,7 @@ class UsersController < ApplicationController
 
   def followers
     @users = @user.followers
-    @title = "Followers"
+    @title = "關注我的人"
     render "followings"
   end
 
@@ -78,7 +78,7 @@ class UsersController < ApplicationController
       flash[:error] = "You already follow #{@user.name}"
     else
           unless  current_user.follow(@user).nil?
-            flash[:success] = "You are following #{@user.name}"
+            flash[:success] = "你關注了 #{@user.name}"
           else          
             flash[:error] = "Something went wrong.  You cannot follow #{@user.name}"
           end
@@ -88,7 +88,7 @@ class UsersController < ApplicationController
 
   def unfollow
     if current_user.unfollow(@user)
-      flash[:success] = "You are no longer following #{@user.name}"
+      flash[:success] = "你不再關注 #{@user.name}"
     else
       flash[:error] = "Something went wrong.  You cannot unfollow #{@user.name}"
     end

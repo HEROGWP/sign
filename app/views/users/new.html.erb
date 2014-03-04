@@ -1,11 +1,11 @@
-<h1>Register</h1>
+<h1>建立帳戶</h1>
 
 <div class="row">
   <%= form_for(@user) do |f| %>
       <%= render "shared/form_errors", record: @user%>
 
       <div class="field">
-        <%= f.label :name %><br>
+        <%= f.label "名字" %><br>
         <%= f.text_field :name %>
       </div>
 
@@ -15,17 +15,17 @@
       </div>
 
       <div class="field">
-        <%= f.label :password %><br>
+        <%= f.label "密碼" %><br>
         <%= f.password_field :password %>
       </div>
 
       <div class="field">
-        <%= f.label :password_confirmation %><br>
+        <%= f.label "再次確認密碼" %><br>
         <%= f.password_field :password_confirmation %>  
       </div>
  
       <div class="actions">
-        <%= f.submit "Register!", class: "btn btn-primary" %>
+        <%= f.submit "申請", class: "btn btn-primary" %>
       </div>
   <% end %>
 </div>

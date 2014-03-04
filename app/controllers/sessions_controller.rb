@@ -7,10 +7,10 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:session][:password])
 	sign_in(@user)
         session[:session_token] = @user.session_token
-        flash[:success] = "Welcome back, #{@user.name}!"
+        flash[:success] = "歡迎回來, #{@user.name}!"
         redirect_to @user
     else
-        flash.now[:error] = "Invalid email/password combination"
+        flash.now[:error] = "email和密碼不正確"
         render "new"
     end  	
   end
