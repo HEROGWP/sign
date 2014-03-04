@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
   before_action :authenticate_user, only: [ :create, :index, :destroy ]
   def index
-		@posts = Post.all
-		@post = current_user.posts.build		
+		@posts = Post.from_followed_users(current_user).order("created_at DESC")
+             @post = current_user.posts.build	
   end
   
   def new

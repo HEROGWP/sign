@@ -1,4 +1,11 @@
 Sign::Application.routes.draw do
+  resources :users do
+    get 'followers', on: :member
+    #get 'followings', on: :member
+    post 'follow', on: :member
+    delete 'unfollow', on: :member
+  end
+
   resources :users
   resources :posts
   resource :sessions, only: [ :new, :create, :destroy ]
