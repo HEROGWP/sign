@@ -1,0 +1,33 @@
+<div class="col-md-12">
+  <div class="group">
+    <%= link_to("新的最愛", new_favorite_path, class: "btn btn-primary pull-right" ) %>
+  </div>
+  
+  <table class="table table-hover table-striped">
+    <thead>
+      <tr> 
+        <th width= 10px> # </th>
+        <th> 裝置 </th>
+        <th> 名稱 </th>
+        <th> URL </th>
+        <th> 備註 </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @favorites.each do |favorite| %>
+        <tr>
+          <td width= 10px> # </td>
+          <td><%= favorite.device %></td>
+          <td><%= favorite.name  %></td>
+          <td><%= favorite.address  %></td>
+          <td><%= favorite.remark %></td>
+          <td>
+            <%=link_to("編輯", edit_favorite_path(favorite), class: "btn btn-sm btn-info")%>
+            <%= link_to("刪除", favorite_path(favorite), method: :delete, data: {confirm: "你確定嗎？刪錯要重打歐！！！" }, class: "btn btn-sm btn-danger ") %>
+            
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

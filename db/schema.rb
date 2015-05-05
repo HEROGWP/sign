@@ -11,7 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140221143311) do
+ActiveRecord::Schema.define(version: 20150505091120) do
+
+  create_table "favorites", force: true do |t|
+    t.string   "device"
+    t.string   "name"
+    t.text     "address"
+    t.text     "remark"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  create_table "feedbacks", force: true do |t|
+    t.text     "q1"
+    t.text     "q2"
+    t.text     "q3"
+    t.text     "q4"
+    t.text     "q5"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "followings", force: true do |t|
     t.integer  "from_id"

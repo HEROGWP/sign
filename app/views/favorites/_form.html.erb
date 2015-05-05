@@ -1,0 +1,31 @@
+  <div class="row">
+  <%= form_for(@favorite) do |f| %>
+      <%= render "shared/form_errors", record: @favorite%>
+      
+      <div class="field">
+        <%= f.label "裝置" %><br>
+        <%= f.text_field :device %>
+      </div>
+
+      <div class="field">
+        <%= f.label "名稱" %><br>
+        <%= f.text_field :name %>
+      </div>
+ 
+      <div class="field">
+        <%= f.label "URL" %><br>
+        <%= f.text_field :address %>
+      </div>
+
+      <div class="field">
+        <%= f.label "備註" %><br>
+        <%= f.text_field :remark %>
+      </div>
+ 
+ 
+      <div class="actions">
+        <%= f.submit "確認", data: {disable_with: '儲存中...'}, class: "btn btn-primary" %>
+      </div>
+  <% end %>
+</div>
+  

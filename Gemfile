@@ -10,7 +10,7 @@ gem 'bootstrap-sass','2.3.2.1'
 
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
-gem 'sqlite3', group: [ :development, :test ]
+gem 'sqlite3', group: :development
 
 # Use pg as the production database
 gem 'pg', group: :production

@@ -1,0 +1,29 @@
+<div class="col-md-12">
+    <div class="group">
+    <%= link_to("新的回饋", new_feedback_path, class: "btn btn-primary pull-right" ) %>
+  </div>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <td>#</td>
+        <td>問題1</td>
+        <td>問題2</td>
+        <td>問題3</td>
+        <td>問題4</td>
+        <td>問題5</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @feedbacks.each do |feedback| %>
+        <tr>
+          <td>#</td>
+          <td><%= feedback.q1 %></td>
+          <td><%= feedback.q2 %></td>
+          <td><%= feedback.q3 %></td>
+          <td><%= feedback.q4 %></td>
+          <td><%= feedback.q5 %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
        	has_many :posts 
+       	has_many :favorites 
 	has_many :out_followings, class_name: "Following", foreign_key: :from_id, dependent: :destroy
 	has_many :followed_users, class_name: "User", through: :out_followings, source: :to
 	has_many :in_followings, class_name: "Following", foreign_key: :to_id, dependent: :destroy
